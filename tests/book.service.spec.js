@@ -19,9 +19,11 @@ describe('searchBook', () => {
             expect(books.length).toBe(1);
         });
 
-        it('should return 1 book', () => {
+        it('should concatenate title with year of published date', () => {
             const books = bookService.searchBooks('Test');
-            expect(books[0].title).toBe('Test book 2021');
+            expect(books[0]).toMatchObject({
+                title: 'Test book 2021'
+            });
         });
 
         it('should call send email ', () => { bookService.searchBooks('Test');
